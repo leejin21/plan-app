@@ -1,0 +1,76 @@
+// TODO 반응형 웹: scss?
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+.App {
+    text-align: center;
+
+    .App-header {
+        background-color: #282c34;
+        min-height: 5vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        font-size: calc(10px + 1.5vmin);
+        color: white;
+        .logo-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            // background-color: pink;
+            flex: 12;
+            .App-logo {
+                height: 5vmin;
+                pointer-events: none;
+            }
+            .logo-txt {
+                font-weight: bold;
+            }
+        }
+        .login {
+            // color: white;
+            flex: 1;
+            font-weight: 200;
+            font-size: calc(10px + 1vmin);
+        }
+    }
+
+    .Content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: black;
+        p {
+            /* background-color: #61dafb; */
+            border: 0.5mm solid rgba(198, 225, 255, 0.808);
+            border-radius: 20px;
+            /* border */
+            margin: 15px 10px;
+            padding: 30px;
+            display: flex;
+            flex: 3;
+            height: 80vmin;
+            color: white;
+        }
+        .Times {
+            flex: 1;
+            border-radius: 20px;
+        }
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
