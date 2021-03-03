@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 // import "./App.css";
 import "./App.scss";
+import TodoList from "./components/TodoList";
+import Times from "./components/Times";
 
 function App() {
     return (
@@ -12,9 +14,9 @@ function App() {
                 </div>
                 <p className="login">로그인</p>
             </header>
-            <div className="Content">
-                <p className="Times">여기는 채워지는 시간표</p>
-                <p className="TDL">여기는 tdl+스톱워치 기능</p>
+            <div className="App-Content">
+                <Times />
+                <TodoList />
             </div>
         </div>
     );

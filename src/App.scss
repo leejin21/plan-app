@@ -41,24 +41,13 @@
         }
     }
 
-    .Content {
+    .App-Content {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
         background-color: black;
-        p {
-            /* background-color: #61dafb; */
-            border: 0.5mm solid rgba(198, 225, 255, 0.808);
-            border-radius: 20px;
-            /* border */
-            margin: 15px 10px;
-            padding: 30px;
-            display: flex;
-            flex: 3;
-            height: 80vmin;
-            color: white;
-        }
+
         .Times {
             flex: 1;
             border-radius: 20px;

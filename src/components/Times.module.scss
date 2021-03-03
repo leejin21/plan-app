@@ -1,0 +1,13 @@
+// ? TodoList.module.scss와 내용이 겹치는데 어떻게 하면 합쳐서 가져다가 쓰지?
+.wrapper {
+    /* background-color: #61dafb; */
+    border: 0.5mm solid rgba(198, 225, 255, 0.808);
+    border-radius: 20px;
+    /* border */
+    margin: 15px 10px;
+    padding: 30px;
+    display: flex;
+    flex: 1;
+    height: 80vmin;
+    color: white;
+}
