@@ -30,6 +30,12 @@ const TodoList = () => {
         setTask("");
         console.log(todos);
     };
+    const handleChecked = (id) => {
+        const new_todos = todos.map((todo) =>
+            todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        );
+        setTodos(new_todos);
+    };
     const handleKeyPress = (e) => {
         // console.log(e.key);
         if (e.key === "Enter") {
@@ -53,6 +59,8 @@ const TodoList = () => {
                         checked={checked}
                         content={content}
                         key={id}
+                        handleChecked={handleChecked}
+                        id={id}
                     ></ListItem>
                 ))}
             </ul>
