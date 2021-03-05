@@ -7,7 +7,7 @@ const GreenCheckbox = withStyles({
     root: {
         color: "white",
         "&$checked": {
-            color: "green",
+            color: "grey",
             textDecorationStyle: "line-through",
         },
     },

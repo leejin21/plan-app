@@ -14,6 +14,11 @@ const initTodo = [
 const TodoList = () => {
     const [task, setTask] = useState("안녕");
     const [todos, setTodos] = useState(initTodo);
+    const [timer, setTimer] = useState(0);
+    // const [isActive, setIsActive] = useState(false);
+    // const [isPaused, setIsPaused] = useState(false);
+    const countRef = useRef(null);
+
     const next_id = useRef(1);
 
     const onChange = (e) => {
@@ -22,13 +27,11 @@ const TodoList = () => {
     };
     const onClick = () => {
         next_id.current++;
-        console.log(next_id);
         setTodos([
             ...todos,
             { id: next_id.current, checked: false, content: task },
         ]);
         setTask("");
-        console.log(todos);
     };
     const handleChecked = (id) => {
         const new_todos = todos.map((todo) =>
@@ -37,14 +40,43 @@ const TodoList = () => {
         setTodos(new_todos);
     };
     const handleKeyPress = (e) => {
-        // console.log(e.key);
         if (e.key === "Enter") {
-            // console.log(e.key);
             onClick();
         }
     };
+    // 스톱워치 관련 functions
+    const handleStart = () => {
+        // setIsActive(true);
+        // setIsPaused(true);
+        countRef.current = setInterval(() => {
+            setTimer((timer) => timer + 1);
+        }, 1000);
+    };
+    const handlePause = () => {
+        clearInterval(countRef.current);
+        // setIsPaused(false);
+    };
+    const handleResume = () => {
+        // setIsPaused(true);
+        countRef.current = setInterval(() => {
+            setTimer((timer) => timer + 1);
+        }, 1000);
+    };
+    const handleReset = () => {
+        clearInterval(countRef.current);
+        // setIsActive(false);
+        // setIsPaused(false);
+        setTimer(0);
+    };
     return (
         <div className={styles.wrapper}>
+            <p>총 공부량: {timer}</p>
+            <div>
+                <button onClick={handleStart}>Start</button>
+                <button onClick={handlePause}>Pause</button>
+                <button onClick={handleResume}>Resume</button>
+                <button onClick={handleReset}>Reset</button>
+            </div>
             <input
                 value={task}
                 name="task"
@@ -53,6 +85,7 @@ const TodoList = () => {
                 onKeyPress={handleKeyPress}
             ></input>
             <button onClick={onClick}>제출</button>
+
             <ul>
                 {todos.map(({ id, checked, content }) => (
                     <ListItem
